@@ -1,4 +1,5 @@
 # Script to sign in and compose an email on gmail
+#Author: Aman Nirala | Social Handels: amanirala13
 
 from selenium import webdriver                                                              #importing web drivers
 from selenium.common.exceptions import NoSuchElementException
@@ -13,11 +14,11 @@ browser.get('http://www.gmail.com')                                             
 def login_into_google(email, password):                                                     # Function to log into the gmail account
 
     NO_LOGIN_INTERRUPTION = True                                                            #Flag to see if the any exception takes place in login process
-    
+
     try:
         elem = browser.find_element_by_id('identifierId')                                   #Finds the email/phone field on the login page
         elem.send_keys(email)                                                               #Sets the email/phone value in the field
-       
+
         elem = browser.find_element_by_class_name('CwaK9').click()                          #Clicks the next button
 
         browser.implicitly_wait(5)                                                          #Standby for 5 sec to give time to the password frame to load
@@ -45,7 +46,7 @@ def compose_email():                                                            
     email_body = input("\n Enter your message: ")                                           #Input the body of the email
 
     browser.implicitly_wait(5)                                                              #Go to standby for 5 sec to give time to the frames to load
-    
+
     elem = browser.find_element_by_class_name("z0")                                         #Find the compose button
     elem.click()                                                                            #Click the compose button
 
@@ -55,12 +56,12 @@ def compose_email():                                                            
     elem = browser.find_element_by_name("subjectbox")                                       #Find the subject of the email field
     elem.send_keys(email_subject)                                                           #Fills in the field with the subject input by the user
 
-    elem = browser.find_element_by_class_name("Am.Al.editable.LW-avf.tS-tW")                #Find the body of the email field         
+    elem = browser.find_element_by_class_name("Am.Al.editable.LW-avf.tS-tW")                #Find the body of the email field
     elem.send_keys(email_body)                                                              #Fills in the field with the email body input by the user
 
     elem = browser.find_element_by_class_name('J-J5-Ji.btA')                                #Finds the Send button
     elem.click()                                                                            #Clicks the send button and sends the email
-    
+
     TIME.sleep(5)                                                                           #Takes the code to stand by for 5 sec
     browser.quit()                                                                          #Quits the broswer before ending the program
 

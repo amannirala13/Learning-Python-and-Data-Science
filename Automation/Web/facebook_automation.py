@@ -1,4 +1,5 @@
 #Automation of facebook login process using Selenium for Google Chrome Web Browser
+#Author : Aman Nirala  | Social Handels : amannirala13
 
 from selenium import webdriver                      #import library
 
