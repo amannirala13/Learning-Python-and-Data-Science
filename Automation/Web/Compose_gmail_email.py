@@ -3,12 +3,13 @@
 
 from selenium import webdriver                                                              #importing web drivers
 from selenium.common.exceptions import NoSuchElementException
+from getpass import getpass
 import time as TIME
 
 
 FOUND_LOGIN_PAGE = True                                                                     #Flag to see if the user is logged in or not
 
-browser = webdriver.Chrome('C:\\Users\\amann\\Downloads\\driver\\chromedriver')             #Opening chrome browser by creating instance of the driver. Pass the path of the driver file in the argument
+browser = webdriver.Chrome('D:\\Softwares\\Selenium Driver\\driver\\chromedriver')             #Opening chrome browser by creating instance of the driver. Pass the path of the driver file in the argument
 browser.get('http://www.gmail.com')                                                         #Loading Gmail in the Chrome browser
 
 def login_into_google(email, password):                                                     # Function to log into the gmail account
@@ -41,7 +42,7 @@ def login_into_google(email, password):                                         
 
 def compose_email():                                                                        #Function the sends the email
 
-    email_to = input("\n Enter the recipient's email: ")                                     #Input the email of the recipient
+    email_to = input("\n Enter the recipient's email: ")                                    #Input the email of the recipient
     email_subject = input("\n Enter the Email Subject: ")                                   #Input the subject of the email
     email_body = input("\n Enter your message: ")                                           #Input the body of the email
 
@@ -73,7 +74,7 @@ except:
 
 if FOUND_LOGIN_PAGE:                                                                        #Checking if we need to login or compose_email
     gmail_email = input("\n Enter your email for Gmail: ")                                  #We need to login, Input user's google email into which he/she wants to login
-    gmail_password = input("\n Enter your password for Gmail:")                             #Input user's google account password into which he/she wants to login
+    gmail_password = getpass("\n Enter your password for Gmail:")                             #Input user's google account password into which he/she wants to login
 
     LOGIN_USER = login_into_google(email = gmail_email, password = gmail_password)          #Calling the login function
 
